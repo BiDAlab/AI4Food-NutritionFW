@@ -30,7 +30,7 @@ This repository proposes **AI4Food-NutritionFW, a framework for the creation of 
 
 ### <a name="ai4foodfw">AI4Food-NutritionFW Framework<a>
 
-<p align="center"><img src="./media/AI4Food-NutritionFW.svg" alt="AI4Food-NutritionFW" title="AI4Food-NutritionFW Framework"/></p>
+<p align="center"><img src="./media/AI4Food-NutritionFW.png" alt="AI4Food-NutritionFW" title="AI4Food-NutritionFW Framework"/></p>
 
 As illustrated in the figure above, first, we define the general and food group parameters of the proposed framework to model the different eating behaviour configurations. After that, modifying previous parameters, we can define different profiles. Finally, with the help of the **AI4Food-NutritionDB**, we can generate datasets with different eating behaviours, select the number of subjects and profiles as desired, or even create new ones. All these tasks are **tunable, allowing researchers to build their own datasets and include different configurations**. The entire software implementation was done in Python, ensuring accessibility for all users.
 
