@@ -8,7 +8,7 @@ Welcome to the AI4Food-NutritionFW GitHub repository!
 
 ## Introduction
 
-In this repository, you will find a framework designed to create food image datasets according to configurable eating behaviours. The [AI4Food-NutritionFW](https://arxiv.org/pdf/2309.06308.pdf) framework considers various aspects such as region and lifestyle and simulates a user-friendly scenario where food images are taken using a smartphone. Additionally, it is supported by the [AI4Food-NutritionDB](https://github.com/BiDAlab/AI4Food-NutritionDB), a comprehensive nutrition database that includes food images and a nutrition taxonomy.
+In this repository, you will find a framework designed to create food image datasets according to configurable eating behaviours. The AI4Food-NutritionFW framework considers various aspects such as region and lifestyle and simulates a user-friendly scenario where food images are taken using a smartphone. Additionally, it is supported by the [AI4Food-NutritionDB](https://github.com/BiDAlab/AI4Food-NutritionDB), a comprehensive nutrition database that includes food images and a nutrition taxonomy.
 
 ## Getting Started
 
@@ -41,7 +41,7 @@ Finally, each parameter is then adjusted within a range of values that define a 
 
 After determining the range of values that characterise each profile, the next step computes the parameter values for each unique subject. Random values within the possible ones are then computed to obtain the frequency of each specific parameter, for instance, for a healthy profile with 50 subjects, between 3 and 5 meals, and between 4 and 6 fruits per day, the AI4Food-NutritionFW will be set to each subject a unique value in these ranges. In addition, a balancing process is then executed to have a realistic distribution of values: as parameters are related to food groups and food intake nutritional levels, each frequency is properly distributed among weeks and days.
 
-For more information, please visit [our article](https://arxiv.org/pdf/2309.06308.pdf).
+<!--- For more information, please visit [our article](https://arxiv.org/pdf/2309.06308.pdf). --->
 
 ### <a name="lasts_modules">AI4Food-NutritionDB and Food Image Dataset Generation<a>
 One of the main contributions of the proposed **AI4Food-NutritionFW** is to simulate a real environment where people take a picture of food images, providing information related to their eating behaviours. This is done by automatically selecting food images based on the chosen configuration from a large pool of realistic and diverse images: the [AI4Food-NutritionDB database](https://github.com/BiDAlab/AI4Food-NutritionDB), the first database that considers food images and a nutrition taxonomy based on recommendations by national and international organisations, including four different categorisations: 6 different nutritional levels defined in accordance to the food intake frequency, 19 main food categories (e.g., “Meat”), 73 food subcategories (e.g., “White Meat”), and 893 final food products (e.g., “Chicken”). As the food group parameters of our proposed AI4Food-NutritionFW are directly related to the food image database, a food image of the corresponding group is randomly selected for each meal and day, recreating a realistic situation. The world region is the only restriction considered. Finally, this task is repeated among all the subjects and profiles designed previously and, as a result, a new dataset is generated.
@@ -49,18 +49,20 @@ One of the main contributions of the proposed **AI4Food-NutritionFW** is to simu
 **NOTE: We plan to update the repository frequently, making the remaining sections and material available as soon as possible.**
 
 ## <a name="cite">Citation<a>
-[Link to arXiv.](https://arxiv.org/pdf/2309.06308.pdf)
+<!--- [Link to arXiv.](https://arxiv.org/pdf/2309.06308.pdf)
 
-- **[AI4Food-NutritionFW_2023]** S. Romero-Tapiador,  R. Tolosana, A. Morales, J. Fierrez, R. Vera-Rodriguez, I. Espinosa-Salinas, E. Carrillo-de Santa Pau, A. Ramirez-de Molina and J. Ortega-Garcia, **"AI4Food-NutritionFW: A Novel Framework for the Automatic Synthesis and Analysis of Eating Behaviours"**, arXiv preprint arXiv:2309.06308, 2023.
+- **[AI4Food-NutritionFW_2023]** S. Romero-Tapiador,  R. Tolosana, A. Morales, J. Fierrez, R. Vera-Rodriguez, I. Espinosa-Salinas, E. Carrillo-de Santa Pau, A. Ramirez-de Molina and J. Ortega-Garcia, **"AI4Food-NutritionFW: A Novel Framework for the Automatic Synthesis and Analysis of Eating Behaviours"**, arXiv preprint arXiv:2309.06308, 2023.--->
 
-  ```
+-**[AI4Food-NutritionFW_2023]** S. Romero-Tapiador,  R. Tolosana, A. Morales, J. Fierrez, R. Vera-Rodriguez, I. Espinosa-Salinas, E. Carrillo-de Santa Pau, A. Ramirez-de Molina and J. Ortega-Garcia, **"AI4Food-NutritionFW: A Novel Framework for the Automatic Synthesis and Analysis of Eating Behaviours"**, Under Review, 2023.
+
+<!---   ```
   @article{romerotapiador2023ai4foodnutritionfw,
       title={AI4Food-NutritionFW: A Novel Framework for the Automatic Synthesis and Analysis of Eating Behaviours}, 
       author={Sergio Romero-Tapiador and Ruben Tolosana and Aythami Morales and Isabel Espinosa-Salinas and Gala Freixer and Julian Fierrez and Ruben Vera-Rodriguez and Enrique Carrillo de Santa Pau and Ana Ramírez de Molina and Javier Ortega-Garcia},
       year={2023},
       journal={arXiv preprint arXiv:2309.06308}
     }
-  ```
+  ```--->
     
 All these articles are publicly available in the [publications](http://atvs.ii.uam.es/atvs/listpublications.do) section of the BiDA-Lab group webpage. Please, remember to reference the above articles on any work made public.
     
