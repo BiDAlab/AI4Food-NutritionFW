@@ -49,20 +49,19 @@ One of the main contributions of the proposed **AI4Food-NutritionFW** is to simu
 **NOTE: We plan to update the repository frequently, making the remaining sections and material available as soon as possible.**
 
 ## <a name="cite">Citation<a>
-<!--- [Link to arXiv.](https://arxiv.org/pdf/2309.06308.pdf)
+-**[AI4Food-NutritionFW_2023](https://doi.org/10.1109/ACCESS.2023.3322770)** S. Romero-Tapiador,  R. Tolosana, A. Morales, J. Fierrez, R. Vera-Rodriguez, I. Espinosa-Salinas, E. Carrillo-de Santa Pau, A. Ramirez-de Molina and J. Ortega-Garcia, **"AI4Food-NutritionFW: A Novel Framework for the Automatic Synthesis and Analysis of Eating Behaviours"**, IEEE Access, 2023.
 
-- **[AI4Food-NutritionFW_2023]** S. Romero-Tapiador,  R. Tolosana, A. Morales, J. Fierrez, R. Vera-Rodriguez, I. Espinosa-Salinas, E. Carrillo-de Santa Pau, A. Ramirez-de Molina and J. Ortega-Garcia, **"AI4Food-NutritionFW: A Novel Framework for the Automatic Synthesis and Analysis of Eating Behaviours"**, arXiv preprint arXiv:2309.06308, 2023.--->
-
--**[AI4Food-NutritionFW_2023]** S. Romero-Tapiador,  R. Tolosana, A. Morales, J. Fierrez, R. Vera-Rodriguez, I. Espinosa-Salinas, E. Carrillo-de Santa Pau, A. Ramirez-de Molina and J. Ortega-Garcia, **"AI4Food-NutritionFW: A Novel Framework for the Automatic Synthesis and Analysis of Eating Behaviours"**, Under Review, 2023.
-
-<!---   ```
-  @article{romerotapiador2023ai4foodnutritionfw,
-      title={AI4Food-NutritionFW: A Novel Framework for the Automatic Synthesis and Analysis of Eating Behaviours}, 
-      author={Sergio Romero-Tapiador and Ruben Tolosana and Aythami Morales and Isabel Espinosa-Salinas and Gala Freixer and Julian Fierrez and Ruben Vera-Rodriguez and Enrique Carrillo de Santa Pau and Ana Ramírez de Molina and Javier Ortega-Garcia},
-      year={2023},
-      journal={arXiv preprint arXiv:2309.06308}
-    }
-  ```--->
+```
+@ARTICLE{romerotapiador2023ai4foodnutritionfw,
+  author={Romero-Tapiador, Sergio and Tolosana, Ruben and Morales, Aythami and Fierrez, Julian and Vera-Rodriguez, Ruben and Espinosa-Salinas, Isabel and Freixer, Gala and Pau, Enrique Carrillo de Santa and De Molina, Ana Ramírez and Ortega-Garcia, Javier},
+  journal={IEEE Access}, 
+  title={AI4Food-NutritionFW: A Novel Framework for the Automatic Synthesis and Analysis of Eating Behaviours}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/ACCESS.2023.3322770}}
+  ```
     
 All these articles are publicly available in the [publications](http://atvs.ii.uam.es/atvs/listpublications.do) section of the BiDA-Lab group webpage. Please, remember to reference the above articles on any work made public.
     
