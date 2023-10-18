@@ -9,7 +9,6 @@ following GitHub repository: https://github.com/BiDAlab/AI4Food-NutritionFW
 """
 # Import Libraries
 import os
-import time
 import random
 import shutil
 import pandas as pd
