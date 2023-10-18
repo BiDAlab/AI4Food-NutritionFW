@@ -63,9 +63,7 @@ The AI4Food-NutritionFW Framework is a unique tool for creating food image datas
 
 - **Configurability:** Users can customise various dataset parameters, including the number of subjects, meals per day, main meals, and territorial regions.
 
-## <a name="ai4foodfwguide-gst">Getting Started
-
-### Installation and Initial Setup
+### <a name="ai4foodfwguide-gst"> Installation and Initial Setup
 
 To get started with the AI4Food-NutritionFW Framework, follow these steps:
 
@@ -81,7 +79,7 @@ To get started with the AI4Food-NutritionFW Framework, follow these steps:
 3. **Download Data:** Download the [food image database](https://github.com/BiDAlab/AI4Food-NutritionDB) if you plan to generate image datasets. Alternatively, you can obtain the subjects' diet text data in JSON format describing food diets.
 
 
-## <a name="ai4foodfwguide-use">Using the Framework
+### <a name="ai4foodfwguide-use">Using the Framework
 
 Follow these steps to use the AI4Food-NutritionFW Framework:
 
@@ -120,7 +118,7 @@ Follow these steps to use the AI4Food-NutritionFW Framework:
 
 **NOTE: We plan to update the repository frequently, making the remaining sections and material available as soon as possible.**
 
-## <a name="ai4foodfwguide-app">Applications
+### <a name="ai4foodfwguide-app">Applications
 
 The food image datasets generated with the AI4Food-NutrititonFW Framework have various applications, including:
 
@@ -130,7 +128,7 @@ The food image datasets generated with the AI4Food-NutrititonFW Framework have v
 
 - **AI Research:** These datasets are valuable for training machine learning models to recognise and classify different foods, making them useful in AI research related to image recognition and diet analysis.
 
-## <a name="ai4foodfwguide-trouble">Troubleshooting
+### <a name="ai4foodfwguide-trouble">Troubleshooting
 
 If you encounter any issues while using the framework, here are some common troubleshooting steps:
 
