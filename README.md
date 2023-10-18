@@ -53,7 +53,7 @@ One of the main contributions of the proposed **AI4Food-NutritionFW** is to simu
 ## <a name="ai4foodfw-guide">AI4Food-NutritionFW Framework User Guide<a>
 Welcome to the User Guide for the AI4Food-NutritionFW Framework, a powerful tool designed to assist you in generating food image datasets that simulate various eating behaviour diets. This comprehensive guide will help you understand the framework's purpose, how to use it effectively, and its potential applications.
 
-## <a name="ai4foodfwguide-overview">Framework Overview
+### <a name="ai4foodfwguide-overview">Framework Overview
 
 The AI4Food-NutritionFW Framework is a unique tool for creating food image datasets that simulate real-world eating behaviour diets. Key features and functionalities include:
 
