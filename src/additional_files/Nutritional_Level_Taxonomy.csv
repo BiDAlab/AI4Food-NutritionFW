@@ -1,0 +1,71 @@
+﻿nutritional_level,root,category,subcategory,ddbb_category,dish_type
+6,Sixth Level,Rice,Rice Subcategory,Rice,Main
+6,Sixth Level,Noodle and Pasta,Noodle,Noodle and Pasta,Main
+6,Sixth Level,Noodle and Pasta,Italian Pasta,Noodle and Pasta,Main
+6,Sixth Level,Noodle and Pasta,Other Types of Pasta,Noodle and Pasta,Main
+6,-,-,Bread,Bread and Similar Products,Bread
+3,Third Level,-,Toast,Bread and Similar Products,Dessert
+3,Third Level,-,Other Types of Bread,Bread and Similar Products,Appetizer
+5,Fifth Level,Vegetables,Cooked Vegetables,Vegetables,Main
+4,Fourth Level,-,Fried Vegetables,Vegetables,Main
+5,Fifth Level,Fruits,Fruits,Fruits,Dessert
+5,Fifth Level,Vegetables,Side Dish Salad,Salad,Side
+3,Third Level,-,Other Types of Salad,Salad,Main
+4,Fourth Level,-,White Meat,Meat,Main
+2,Second Level,Fatty Meat,Red Meat,Meat,Main
+2,Second Level,Fatty Meat,Breaded Meat,Meat,Main
+2,Second Level,Fatty Meat,Varied Meat,Meat,Main
+2,Second Level,Fatty Meat,Sausage,Meat,Main
+1,First Level,-,Pâté,Meat,Appetizer
+4,Fourth Level,Fish and Seafood,Varied Fish,Fish,Main
+3,Third Level,-,Fried or Breaded Fish,Fish,Main
+4,Fourth Level,Fish and Seafood,Mollusk,Seafood,Main
+4,Fourth Level,Fish and Seafood,Crustacean,Seafood,Main
+3,Third Level,-,Fried Seafood,Seafood,Main
+4,Fourth Level,Seafood,Varied Seafood,Seafood,Main
+4,Fourth Level,Beans,Cooked Beans,Beans,Main
+3,Third Level,Beans,Fried Beans,Beans,Main
+4,Fourth Level,Eggs,Eggs Subcategory,Eggs,Main
+4,Fourth Level,Dairy Products,Cheese,Dairy Products,Appetizer
+4,Fourth Level,Dairy Products,Yogurt,Dairy Products,Appetizer
+3,Third Level,-,Fried Dairy Products,Dairy Products,Main
+4,Fourth Level,Soups and Stews,Soups and Creams,Soups and Stews,Main
+4,Fourth Level,Soups and Stews,Stews,Soups and Stews,Main
+3,Third Level,Sandwich and Similar Products,Sandwich,Sandwich and Similar Products,Main
+3,Third Level,Sandwich and Similar Products,Wrap,Sandwich and Similar Products,Main
+4,Fourth Level,-,Nut Snacks,Salty Snacks,Snack
+1,First Level,-,Vegetable Snacks,Salty Snacks,Snack
+1,First Level,-,Bean Snacks,Salty Snacks,Snack
+1,First Level,-,Other Salty Snacks,Salty Snacks,Snack
+1,First Level,Sweet Products,Pastries,Sweet Products,Dessert
+1,First Level,Sweet Products,Chocolate Products,Sweet Products,Dessert
+1,First Level,Sweet Products,Dairy Dessert,Sweet Products,Dessert
+1,First Level,Sweet Products,Fruit Dessert,Sweet Products,Dessert
+1,First Level,Sweet Products,Other Sweet Products,Sweet Products,Dessert
+1,First Level,Fast Food,Pizza,Fast Food,Main
+1,First Level,Fast Food,Burger,Fast Food,Main
+1,First Level,Fast Food,Hot Dog,Fast Food,Main
+1,First Level,Fast Food,Fries,Fast Food,Side
+6,Sixth Level,Rice,Mixed Rice,Mixed Food,Main
+5,Fifth Level,Vegetables,Mixed Vegetables,Mixed Food,Main
+4,Fourth Level,-,Rice and Fish,Mixed Food,Main
+4,Fourth Level,-,Rice and Beans,Mixed Food,Main
+4,Fourth Level,Fish and Seafood,Mixed Fish,Mixed Food,Main
+4,Fourth Level,Fish and Seafood,Mixed Seafood,Mixed Food,Main
+4,Fourth Level,Beans,Mixed Beans,Mixed Food,Main
+4,Fourth Level,Eggs,Mixed Eggs,Mixed Food,Main
+4,Fourth Level,-,Sushi,Mixed Food,Main
+3,Third Level,-,Rice and Meat,Mixed Food,Main
+3,Third Level,-,Meat and Vegetables,Mixed Food,Main
+3,Third Level,-,Mixed Food,Mixed Food,Main
+2,Second Level,-,Mixed Meat,Mixed Food,Main
+2,Second Level,-,Dumpling,Mixed Food,Main
+2,Second Level,-,Pie,Mixed Food,Main
+2,Second Level,-,Stuffed Dough,Mixed Food,Main
+2,Second Level,-,Fried Food,Mixed Food,Main
+1,First Level,-,Sauce,Mixed Food,Snack
+3,Third Level,-,Vegetable Drinks,Drinks,Drinks
+2,Second Level,-,Coffee,Drinks,Drinks
+2,Second Level,-,Alcoholic Drinks,Drinks,Drinks
+1,First Level,-,Sugary Drinks,Drinks,Drinks
+1,First Level,-,Other Drinks,Drinks,Drinks
