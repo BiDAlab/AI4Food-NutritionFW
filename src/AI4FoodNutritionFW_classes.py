@@ -15,10 +15,9 @@ This file contains the classes used in the AI4FoodNutrition framework. The class
 """
 
 import os.path
-
-import src.utils as utils
 import random
 import collections
+import src.utils as utils
 
 """
 Class Subject: Contains the information of a subject, i.e., the ID, the region, the number of weeks, and the diet.
