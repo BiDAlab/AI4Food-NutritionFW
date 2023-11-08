@@ -32,6 +32,7 @@ class Subject:
         self.region = region
         self.weeks = int(weeks)
         self.diets = collections.OrderedDict()
+        self.variable = variable_flag
 
         diet_type_weeks = [diet_type] * self.weeks
 
@@ -63,7 +64,7 @@ class Subject:
 
     # Save the subject's diet in a json file
     def save_subject_diet(self, path):
-        dictionary_to_save = {"ID": self.ID, "region": self.region, "weeks": self.weeks, "diets": {}}
+        dictionary_to_save = {"ID": self.ID, "region": self.region, "variable": self.variable, "weeks": self.weeks, "diets": {}}
 
         for week in self.diets:
             dictionary_to_save["diets"][week] = {}
