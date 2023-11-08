@@ -116,7 +116,33 @@ Follow these steps to use the AI4Food-NutritionFW Framework:
 
    Once the dataset generation is complete, the framework will display the message: "The dataset has been generated successfully in the following path: XXX," where XXX is the current path where the GitHub repository was downloaded.
 
-**NOTE: We plan to update the repository frequently, making the remaining sections and material available as soon as possible.**
+### <a name="ai4foodfwguide-hs">Healthy Score
+Finally, in order to obtain a score that quantifies the subject's eating behaviour, we compare the similarity of the subject's intake frequency of each food group with the optimal ranges. This is carried out using a Healthy Score based on the Normalised Mahalanobis Distance (*NMD*), where *NMD* is the [0,1] normalised value of the Mahalanobis Distance (*MD*). This distance calculates the similarity between a vector $x_i$ and a set of vectors represented by its mean $\bar{x}$ and Covariance matrix $C_x$ as follows:
+
+<div align="center">
+    
+$MD_i = \sqrt{(x_i-\bar{x}) C_x^{-1} (x_i-\bar{x})^T}$
+</div>
+
+
+, where $x_i$ is a row vector of size 9 quantifying the 9 specific intakes for subject $i$, $\bar{x}$ is also a row vector of size 9 with the mean for the optimal range $\sigma_j$ for each type of intake $j=1,\ldots,9$, and $C_x=\sigma^T I \sigma$, where $\sigma=[\sigma_1,\ldots,\sigma_9]$ and $I$ is a $9\times9$ identity matrix. In our proposed approach, as implemented in the formulation above, $\bar{x}$ and $C_x$ values are obtained using the optimal ranges of each food group (following healthy recommendations) as this represents the ideal profile of healthy eating behaviour. 
+
+The final Healthy Score is then calculated through the following equation:
+
+<div align="center">
+    
+$HealthyScore = 1 - NMD$
+</div>
+
+As a result, Healthy Scores close to 1 mean healthy eating behaviours whereas Healthy Scores close to 0 mean unhealthy eating ones. In this repository, we include the Healthy Score to assess the eating behaviour diets generated from the AI4Food-NutritionFW. To use it, run the following command:
+
+```bash
+python HealthyScore.py
+```
+
+Then, all the generated datasets will be displayed. Select the desired one to evaluate it. The program calculates the Healthy Score based on the Mahalanobis Distance to compute the similarity of a subject's diet to the optimal diet profile. After calculating the healthy scores, the program provides a visual representation of the dataset's healthiness, similarly to the graph ploted in the [current paper](https://doi.org/10.1109/ACCESS.2023.3322770). In this visualization, green represents healthy users, red indicates unhealthy users, yellow is for medium profile users, and orange is used to signify variable profiles. Users can quickly identify the healthiness of individual diets and dietary patterns within the dataset. The program sets a decision boundary at 0.4 (0.36 in the paper) by default, meaning that diets with a healthy score greater than 0.4 are classified as healthy. 
+
+**It's important to note that the dataset you wish to evaluate must be placed in the same directory folder as the "HealthyScore.py" program.**
 
 ### <a name="ai4foodfwguide-app">Applications
 
