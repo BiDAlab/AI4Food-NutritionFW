@@ -116,6 +116,10 @@ Follow these steps to use the AI4Food-NutritionFW Framework:
 
    Once the dataset generation is complete, the framework will display the message: "The dataset has been generated successfully in the following path: XXX," where XXX is the current path where the GitHub repository was downloaded.
 
+Below is an illustrative example of the framework in action:
+
+<p align="center"><img src="./media/AI4Food-NutritionFW Screenshot.jpg" alt="AI4Food-NutritionFW Screenshot" title="AI4Food-NutritionFW Screenshot"/></p>
+
 ### <a name="ai4foodfwguide-hs">Healthy Score
 Finally, in order to obtain a score that quantifies the subject's eating behaviour, we compare the similarity of the subject's intake frequency of each food group with the optimal ranges. This is carried out using a Healthy Score based on the Normalised Mahalanobis Distance (*NMD*), where *NMD* is the [0,1] normalised value of the Mahalanobis Distance (*MD*). This distance calculates the similarity between a vector $x_i$ and a set of vectors represented by its mean $\bar{x}$ and Covariance matrix $C_x$ as follows:
 
@@ -134,13 +138,19 @@ The final Healthy Score is then calculated through the following equation:
 $HealthyScore = 1 - NMD$
 </div>
 
-As a result, Healthy Scores close to 1 mean healthy eating behaviours whereas Healthy Scores close to 0 mean unhealthy eating ones. In this repository, we include the Healthy Score to assess the eating behaviour diets generated from the AI4Food-NutritionFW. To use it, run the following command:
+As a result, Healthy Scores close to 1 mean healthy eating behaviours whereas Healthy Scores close to 0 mean unhealthy eating ones. In this repository, we include the [Healthy Score](https://github.com/BiDAlab/AI4Food-NutritionFW/blob/main/HealthyScore.py) to assess the eating behaviour diets generated from the AI4Food-NutritionFW. To use it, run the following command:
 
 ```bash
 python HealthyScore.py
 ```
 
-Then, all the generated datasets will be displayed. Select the desired one to evaluate it. The program calculates the Healthy Score based on the Mahalanobis Distance to compute the similarity of a subject's diet to the optimal diet profile. After calculating the healthy scores, the program provides a visual representation of the dataset's healthiness, similarly to the graph ploted in the [current paper](https://doi.org/10.1109/ACCESS.2023.3322770). In this visualization, green represents healthy users, red indicates unhealthy users, yellow is for medium profile users, and orange is used to signify variable profiles. Users can quickly identify the healthiness of individual diets and dietary patterns within the dataset. The program sets a decision boundary at 0.4 (0.36 in the paper) by default, meaning that diets with a healthy score greater than 0.4 are classified as healthy. 
+Then, all the generated datasets will be listed, allowing the user to select the desired one. The program calculates the Healthy Score by employing the Mahalanobis Distance to measure the similarity of a subject's diet to the optimal diet profile. 
+
+<p align="center"><img src="./media/Healthy Score Program.jpg" alt="Healthy Score Program" title="Healthy Score Program"/></p>
+
+Once the healthy scores have been computed, the program provides a visual representation of the dataset's healthiness, similar to the graph plotted in the [current paper](https://doi.org/10.1109/ACCESS.2023.3322770). Within this visualization, green represents healthy users, red indicates unhealthy users, yellow is for medium profile users, and orange is used to signify variable profiles. This visual representation enables users to identify the healthiness of individual diets and dietary patterns within the dataset. The program, by default, sets a decision boundary at 0.4 (0.36 in the paper), meaning that diets with a healthy score greater than 0.4 are classified as healthy. 
+
+<p align="center"><img src="./media/Healthy Score Graph.jpg" alt="Healthy Score Graph" title="Healthy Score Graph"/></p>
 
 **It's important to note that the dataset you wish to evaluate must be placed in the same directory folder as the "HealthyScore.py" program.**
 
