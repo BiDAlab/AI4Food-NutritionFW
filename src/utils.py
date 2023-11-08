@@ -9,8 +9,12 @@ This file contains the additional functions used in the framework.
 
 import os
 import sys
+import json
 import random
+import numpy as np
 import pandas as pd
+from numpy.linalg import inv
+import matplotlib.patches as mpatches
 
 # Define the list of regions
 region_lst = ["INTERNATIONAL", "CENTRAL ASIA", "EAST AND SOUTHEAST ASIA", "EUROPE", "LATIN AMERICA AND THE CARIBBEAN",
@@ -20,6 +24,25 @@ total_regions = len(region_lst)
 # Define the global variables
 num_subjects = 0
 current_num_subjects = 0
+
+# Define the optimal range, which is the mean of the different food groups
+# Fruits, Vegetables, Cereals, Meat, Fish and Seafood, Eggs, Legumes, First Level Products, Second Level Products
+optimal_range = np.array([[24.5, 17.5, 10.5, 2.5, 3.5, 4, 3, 3.5, 7]])
+
+# Define the minimum and maximum values for the mahalanobis distance
+min_value = 1.2
+max_value = 6.2
+
+# Define the colors for the plots
+colors = {"Healthy": "#6AA84F", "Medium": "#f1c232ff", "Unhealthy": "#cc0000ff", "Variable": "#E67C12",
+          "DecisionBoundary": "#333f50"}
+fontsize = 15
+
+healthy_patch = mpatches.Patch(color=colors["Healthy"], label='Healthy Profile')
+medium_patch = mpatches.Patch(color=colors["Medium"], label='Medium Profile')
+unhealthy_patch = mpatches.Patch(color=colors["Unhealthy"], label='Unhealthy Profile')
+variable_patch = mpatches.Patch(color=colors["Variable"], label='Variable Profile')
+decboun_patch = mpatches.Patch(color=colors["DecisionBoundary"], label='Decision Boundary (0.4)')
 
 
 # Transforms a week number into a string
@@ -376,3 +399,175 @@ def initialize_current_num_subjects():
     current_num_subjects = 0
 
 
+def initialize_objects(path):
+    # Load the covariance matrix
+    covariance_matrix = np.load(os.path.join(path, "covariance_matrix.npy"), mmap_mode=None,
+                                allow_pickle=False,
+                                fix_imports=True, encoding='ASCII')
+
+    # Load the taxonomy file
+    df_taxonomy = pd.read_csv(os.path.join(path, "Nutritional_Level_Taxonomy.csv"), sep=",")
+
+    return covariance_matrix, df_taxonomy
+
+
+# Search the latest database
+def search_database(path):
+    # Initialize the list
+    dataset_lst = []
+    lst_dirs = os.listdir(path)
+
+    # Iterate over the directories
+    for current_dir in lst_dirs:
+        # If the directory is a dataset, append it to the list
+        if "AI4Food-NutritionFW Dataset" in current_dir:
+            dataset_lst.append(current_dir)
+
+    # Ask the user to select the dataset
+    print("Dataset list:")
+    for i in range(len(dataset_lst)):
+        print(str(i) + ". " + dataset_lst[i] + " (" + str(
+            len(os.listdir(os.path.join(path, dataset_lst[i])))) + " users)")
+
+    # Get the user input
+    print("Select the dataset: ", end="")
+    try:
+        user_input = int(input())
+
+        while user_input < 0 or user_input >= len(dataset_lst):
+            print("Invalid input. Please, try again using a number from the list: ", end="")
+            user_input = int(input())
+    except ValueError:
+        print("Invalid input. Please, try again using a number from the list: ", end="")
+        user_input = int(input())
+
+        while user_input < 0 or user_input >= len(dataset_lst):
+            print("Invalid input. Please, try again using a number from the list: ", end="")
+            user_input = int(input())
+
+    # Print the selected dataset
+    print("Selected dataset: " + dataset_lst[user_input])
+
+    # Return the selected dataset
+    return dataset_lst[user_input], os.path.join(path, dataset_lst[user_input])
+
+
+# Calculate the mahalanobis distance from a given diet
+def mahalanobis_distance(x, covariance_matrix):
+    # The mahalanobis distance is calculated as:
+    # (x - mu) * inv(covariance_matrix) * (x - mu).T
+    x_minus_mu = x - optimal_range
+    inv_covmat = np.linalg.inv(covariance_matrix)
+    left_term = np.dot(x_minus_mu, inv_covmat)
+    mahal = np.dot(left_term, x_minus_mu.T)
+    return mahal[0][0]
+
+
+# Convert the diet dict to a diet matrix
+def get_matrix(user_diet):
+    matrix = np.zeros((1, 9))
+
+    matrix[0, 0] = user_diet["fruits"]
+    matrix[0, 1] = user_diet["vegetables"]
+    matrix[0, 2] = user_diet["cereals"]
+    matrix[0, 3] = user_diet["meat"]
+    matrix[0, 4] = user_diet["fish_and_seafood"]
+    matrix[0, 5] = user_diet["eggs"]
+    matrix[0, 6] = user_diet["legumes"]
+    matrix[0, 7] = user_diet["first_level_products"]
+    matrix[0, 8] = user_diet["second_level_products"]
+
+    return matrix
+
+
+# Find the food group in the taxonomy
+def find_food_group(plate, df_taxonomy):
+    # Get the food group from the query
+    food_group = df_taxonomy.loc[(df_taxonomy['root'] == plate) | (df_taxonomy['category'] == plate) | (
+            df_taxonomy['subcategory'] == plate)]
+
+    # Reset the index
+    food_group = food_group.reset_index(drop=True)
+
+    # Return the food group
+    return food_group
+
+
+# Get the users diets
+def get_user_diets(path, df_taxonomy):
+    # Initialize the users diet dictionary
+    user_diet = {}
+    user_lst = os.listdir(path)
+
+    # Initialize the current number of subjects and the total number of subjects
+    initialize_current_num_subjects()
+    update_num_subjects(len(user_lst))
+
+    # Print the progress bar
+    print_progress_bar(current_num_subjects, num_subjects, prefix='Progress:', suffix='Complete', length=50)
+
+    # For each user of the dataset
+    for user in user_lst:
+        # Load the user data json
+        with open(os.path.join(path, user, user + ".json"), "r", encoding="utf-8") as file:
+            user_data = json.load(file)
+
+        # Initialize the user diet dictionary
+        user_diet[user] = {}
+
+        user_diet[user]["variable"] = user_data["variable"]
+
+        # For each week of the user diet
+        for week in user_data["diets"]:
+            # Initialize the week diet dictionary
+            user_diet[user][week] = {}
+
+            # Assign the diet profile and initialize the food groups counters
+            user_diet[user][week]["profile"] = user_data["diets"][week]["diet_type"]
+            user_diet[user][week]["fruits"] = 0
+            user_diet[user][week]["vegetables"] = 0
+            user_diet[user][week]["cereals"] = 0
+            user_diet[user][week]["meat"] = 0
+            user_diet[user][week]["fish_and_seafood"] = 0
+            user_diet[user][week]["eggs"] = 0
+            user_diet[user][week]["legumes"] = 0
+            user_diet[user][week]["first_level_products"] = 0
+            user_diet[user][week]["second_level_products"] = 0
+
+            # For each day of the week
+            for day in user_data["diets"][week]["meals"]:
+                # For each meal of the day
+                for meal in user_data["diets"][week]["meals"][day]:
+                    # For each dish type of the meal
+                    for dish_type in user_data["diets"][week]["meals"][day][meal]:
+                        # For each plate of the dish type
+                        for plate in user_data["diets"][week]["meals"][day][meal][dish_type]:
+                            # Find the food group of the plate
+                            current_food_group = find_food_group(plate, df_taxonomy)
+
+                            # If the food group is found, add 1 to the corresponding counter
+                            if current_food_group.loc[0, "category"] == "Fruits":
+                                user_diet[user][week]["fruits"] += 1
+                            elif current_food_group.loc[0, "category"] == "Vegetables":
+                                user_diet[user][week]["vegetables"] += 1
+                            elif current_food_group.loc[0, "root"] == "Sixth Level":
+                                user_diet[user][week]["cereals"] += 1
+                            elif current_food_group.loc[0, "category"] == "Fatty Meat" or \
+                                    current_food_group.loc[0, "subcategory"] == "White Meat":
+                                user_diet[user][week]["meat"] += 1
+                            elif current_food_group.loc[0, "category"] == "Fish and Seafood":
+                                user_diet[user][week]["fish_and_seafood"] += 1
+                            elif current_food_group.loc[0, "category"] == "Eggs":
+                                user_diet[user][week]["eggs"] += 1
+                            elif current_food_group.loc[0, "category"] == "Beans":
+                                user_diet[user][week]["legumes"] += 1
+                            elif current_food_group.loc[0, "root"] == "First Level":
+                                user_diet[user][week]["first_level_products"] += 1
+                            elif current_food_group.loc[0, "root"] == "Second Level":
+                                user_diet[user][week]["second_level_products"] += 1
+
+        # Update the current number of subjects and print the progress bar
+        print_progress_bar(current_num_subjects + 1, num_subjects, prefix='Progress:', suffix='Complete', length=50)
+        update_current_num_subjects()
+
+    return user_diet
