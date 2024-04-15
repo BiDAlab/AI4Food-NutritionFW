@@ -1,12 +1,12 @@
-<a href="http://atvs.ii.uam.es/atvs/">
-    <img src="./media/BiDA-logo.png" alt="BiDA Lab" title="BiDA Lab" align="right" height="150" width="350" target="_blank"/>
-</a>
-
 # AI4Food-NutritionFW
 
 Welcome to the AI4Food-NutritionFW GitHub repository!
 
 ## Introduction
+
+<a href="http://atvs.ii.uam.es/atvs/">
+    <img src="./media/BiDA-logo.png" alt="BiDA Lab" title="BiDA Lab" align="right" height="150" width="350" target="_blank"/>
+</a>
 
 In this repository, you will find a framework designed to create food image datasets according to configurable eating behaviours. The [AI4Food-NutritionFW framework](https://doi.org/10.1109/ACCESS.2023.3322770) considers various aspects such as region and lifestyle and simulates a user-friendly scenario where food images are taken using a smartphone. Additionally, it is supported by the [AI4Food-NutritionDB](https://github.com/BiDAlab/AI4Food-NutritionDB), a comprehensive nutrition database that includes food images and a nutrition taxonomy. 
 
