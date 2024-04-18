@@ -10,7 +10,7 @@ Welcome to the AI4Food-NutritionFW GitHub repository!
 
 In this repository, you will find a framework designed to create food image datasets according to configurable eating behaviours. The [AI4Food-NutritionFW framework](https://doi.org/10.1109/ACCESS.2023.3322770) considers various aspects such as region and lifestyle and simulates a user-friendly scenario where food images are taken using a smartphone. Additionally, it is supported by the [AI4Food-NutritionDB](https://github.com/BiDAlab/AI4Food-NutritionDB), a comprehensive nutrition database that includes food images and a nutrition taxonomy. 
 
-[Link to the IEEE Access Paper.](https://doi.org/10.1109/ACCESS.2023.3322770)
+For further details, please visit [our article](https://doi.org/10.1109/ACCESS.2023.3322770).
 
 ## Table of Contents
 
@@ -32,6 +32,7 @@ Nowadays millions of images are shared on social media and web platforms. In par
 
 This repository proposes **AI4Food-NutritionFW, a framework for the creation of food image datasets according to configurable eating behaviours**. AI4Food-NutritionFW simulates a user-friendly and widespread scenario where images are taken using a smartphone. Finally, we automatically evaluate a healthy index of the subject's eating behaviours using multidimensional metrics based on guidelines for healthy diets proposed by international organisations.
 
+
 ### <a name="ai4foodfw">AI4Food-NutritionFW Framework Description<a>
 
 <p align="center"><img src="./media/AI4Food-NutritionFW.png" alt="AI4Food-NutritionFW" title="AI4Food-NutritionFW Framework"/></p>
@@ -44,8 +45,6 @@ We initially define the parameters of the AI4Food-NutritionFW to characterise th
 Finally, each parameter is then adjusted within a range of values that define a new profile. A final value associated with each parameter is randomly generated between each range in order to differentiate subjects from the same profile, and also to generate different eating behaviours. This task requires a preliminary analysis from a general (comparison among profiles) to a specific point of view to build a reliable dataset. For instance, healthy eating profiles have intake frequencies related to the healthy recommendations and therefore, the parameters will be set according to these guidances. 
 
 After determining the range of values that characterise each profile, the next step computes the parameter values for each unique subject. Random values within the possible ones are then computed to obtain the frequency of each specific parameter, for instance, for a healthy profile with 50 subjects, between 3 and 5 meals, and between 4 and 6 fruits per day, the AI4Food-NutritionFW will be set to each subject a unique value in these ranges. In addition, a balancing process is then executed to have a realistic distribution of values: as parameters are related to food groups and food intake nutritional levels, each frequency is properly distributed among weeks and days.
-
-<!--- For more information, please visit [our article](https://arxiv.org/pdf/2309.06308.pdf). --->
 
 ### <a name="lasts_modules">AI4Food-NutritionDB and Food Image Dataset Generation<a>
 One of the main contributions of the proposed **AI4Food-NutritionFW** is to simulate a real environment where people take a picture of food images, providing information related to their eating behaviours. This is done by automatically selecting food images based on the chosen configuration from a large pool of realistic and diverse images: the [AI4Food-NutritionDB database](https://github.com/BiDAlab/AI4Food-NutritionDB), the first database that considers food images and a nutrition taxonomy based on recommendations by national and international organisations, including four different categorisations: 6 different nutritional levels defined in accordance to the food intake frequency, 19 main food categories (e.g., “Meat”), 73 food subcategories (e.g., “White Meat”), and 893 final food products (e.g., “Chicken”). As the food group parameters of our proposed AI4Food-NutritionFW are directly related to the food image database, a food image of the corresponding group is randomly selected for each meal and day, recreating a realistic situation. The world region is the only restriction considered. Finally, this task is repeated among all the subjects and profiles designed previously and, as a result, a new dataset is generated.
